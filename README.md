@@ -1,7 +1,5 @@
 # Remote Component Starter Kit
 
-![Starter Kit](https://raw.githubusercontent.com/Paciolan/remote-component-starter/master/media/icon-small.png)
-
 Starter Kit for quickly creating a Remote React Component that can be Remotely Loaded by `@paciolan/remote-component`.
 
 ## Getting Started
@@ -15,7 +13,7 @@ cd my-component
 git init
 
 # pull the remote component starter kit
-git pull https://github.com/Paciolan/remote-component-starter.git --depth=1
+git pull https://github.com/hivenetwork-ai/hive-agent-widget-template.git --depth=1
 git commit --amend -m "chore: 🛠️ pull remote-component-starter"
 
 # install dependencies
@@ -119,6 +117,8 @@ npm run cz
 
 ## Contributors
 
-Joel Thoms (https://twitter.com/joelnet)
+(Initialized) Joel Thoms (https://github.com/joelnet)
+
+(Updated for current version) Icetrust (https://github.com/icetrust0212)
 
 Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](www.flaticon.com)
