@@ -4,7 +4,7 @@
  */
 import { RemoteComponent } from "@paciolan/remote-component";
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import LocalComponent from "./index.js";
 
 // different paths for localhost vs s3
@@ -16,7 +16,7 @@ const node = document.getElementById("app");
 const Component = props =>
   process.env.NODE_ENV === "development"
     ? <LocalComponent {...props} />
-    : <RemoteComponent url={url} {...props} />; // prettier-ignore
+    : <RemoteComponent url={url} {...props} />;
 
 const App = () => (
   <>
@@ -24,4 +24,6 @@ const App = () => (
   </>
 );
 
-ReactDOM.render(<App />, node);
+// Use createRoot instead of ReactDOM.render
+const root = createRoot(node);
+root.render(<App />);

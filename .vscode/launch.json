@@ -10,7 +10,7 @@
       "name": "Launch Chrome",
       "url": "http://localhost:9090",
       "webRoot": "${workspaceFolder}",
-      "sourceMaps": true,
+      "sourceMaps": true
     },
     {
       "name": "Jest", // This is the configuration name you will see in debug sidebar
