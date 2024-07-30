@@ -4,7 +4,7 @@
   "description": "Remote Component Starter",
   "private": true,
   "browser": "dist/main.js",
-  "author": "Paciolan",
+  "author": "Paciolan && Codomposer",
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
