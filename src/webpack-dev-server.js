@@ -9,14 +9,18 @@ import LocalComponent from "./index.js";
 
 // different paths for localhost vs s3
 const url =
-  process.env.NODE_ENV === "development" ? "/dist/main.js" : "main.js";
+  process.env.NODE_ENV === "development" ? "/dist/main.js" : "Title.js";
+
+console.log({ url });
 
 const node = document.getElementById("app");
 
 const Component = props =>
-  process.env.NODE_ENV === "development"
-    ? <LocalComponent {...props} />
-    : <RemoteComponent url={url} {...props} />;
+  process.env.NODE_ENV === "development" ? (
+    <LocalComponent {...props} />
+  ) : (
+    <RemoteComponent url={url} {...props} />
+  );
 
 const App = () => (
   <>
