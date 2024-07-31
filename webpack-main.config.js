@@ -27,7 +27,8 @@ module.exports = {
     new WebpackAssetsManifest()
   ],
   entry: {
-    main: "./src/index.js"
+    main: "./src/index.js",
+    title: "./src/App.js"
   },
   output: {
     libraryTarget: "commonjs"

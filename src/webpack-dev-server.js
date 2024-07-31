@@ -11,7 +11,8 @@ import LocalComponent from "./index.js";
 const url =
   process.env.NODE_ENV === "development" ? "/dist/main.js" : "Title.js";
 
-console.log({ url });
+// const url =
+//   global.location.hostname === "localhost" ? "/dist/main.js" : "main.js";
 
 const node = document.getElementById("app");
 
