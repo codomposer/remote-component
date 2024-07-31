@@ -28,7 +28,7 @@ module.exports = {
   ],
   entry: {
     main: "./src/index.js",
-    title: "./src/App.js",
+    title: "./src/components/Title.js",
     test2: "./src/components/Test2.js"
   },
   output: {
