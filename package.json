@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
+    "build:one": "npm run clean && node setComponentName.js",
     "build:dev": "npm run clean && cross-env NODE_ENV=development webpack --mode development",
     "webpack-dev-server": "cross-env NODE_ENV=development webpack serve --config webpack.dev.config.js --port 9090 --open",
     "start": "concurrently -n webpack,webpack-dev-server -c green,cyan \"npm run build:dev -- --watch\" \"npm run webpack-dev-server\"",
@@ -62,7 +63,8 @@
     "webpack-assets-manifest": "^5.2.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
+    "webpack-dev-server": "^5.0.4",
+    "webpack-shell-plugin-next": "^2.3.1"
   },
   "husky": {
     "hooks": {
