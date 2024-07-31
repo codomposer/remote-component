@@ -28,7 +28,8 @@ module.exports = {
   ],
   entry: {
     main: "./src/index.js",
-    title: "./src/App.js"
+    title: "./src/App.js",
+    test2: "./src/components/Test2.js"
   },
   output: {
     libraryTarget: "commonjs"
