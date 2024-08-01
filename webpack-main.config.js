@@ -27,13 +27,24 @@ const componentName = process.env.COMPONENT_NAME;
 const directory = "./bundle";
 
 fs.readdir(directory, (err, files) => {
-  if (err) throw err;
+  if (err) {
+    console.error(`Error reading directory: ${err.message}`);
+    return;
+  }
+
+  if (files.length === 0) {
+    console.log("No files to delete.");
+    return;
+  }
 
   for (const file of files) {
     fs.unlink(path.join(directory, file), err => {
-      if (err) throw err;
+      if (err) {
+        console.error(`Error deleting file: ${err.message}`);
+      }
     });
   }
+  console.log("All files deleted successfully.");
 });
 
 let entries = {};

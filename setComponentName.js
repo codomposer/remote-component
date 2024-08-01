@@ -5,7 +5,6 @@ if (!componentName) {
   process.exit(1);
 }
 
-process.env.COMPONENT_NAME = componentName;
 require("cross-env")([
   `COMPONENT_NAME=${componentName}`,
   "NODE_ENV=production",
