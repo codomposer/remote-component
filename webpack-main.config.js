@@ -1,9 +1,3 @@
-/**
- * generates:
- *  - dist/main.js
- *  - dist/manifest.json
- *  - dist/webpack-bundle-analyzer-report.html
- */
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
@@ -27,13 +21,24 @@ const componentName = process.env.COMPONENT_NAME;
 const directory = "./bundle";
 
 fs.readdir(directory, (err, files) => {
-  if (err) throw err;
+  if (err) {
+    console.error(`Error reading directory: ${err.message}`);
+    return;
+  }
+
+  if (files.length === 0) {
+    console.log("No files to delete.");
+    return;
+  }
 
   for (const file of files) {
     fs.unlink(path.join(directory, file), err => {
-      if (err) throw err;
+      if (err) {
+        console.error(`Error deleting file: ${err.message}`);
+      }
     });
   }
+  console.log("All files deleted successfully.");
 });
 
 let entries = {};
@@ -43,14 +48,14 @@ if (!componentName) {
   const dir = "./src/components";
 
   fs.readdirSync(dir).forEach(file => {
-    if (path.extname(file) === ".js") {
-      const name = path.basename(file, ".js");
+    if (path.extname(file) === ".tsx") {
+      const name = path.basename(file, ".tsx");
       entries[name] = `./${path.join(dir, file).replace(/\\/g, "/")}`;
     }
   });
 } else {
   entries = {
-    [componentName]: `./src/components/${capitalizeFirstLetter(componentName)}.js`
+    [componentName]: `./src/components/${capitalizeFirstLetter(componentName)}.tsx`
   };
 }
 
@@ -74,7 +79,7 @@ module.exports = {
     })
   ],
   entry: {
-    main: "./src/index.js",
+    main: "./src/index.tsx",
     ...entries
   },
   output: {
@@ -86,14 +91,15 @@ module.exports = {
     ...externals,
     "remote-component.config.js": "remote-component.config.js"
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", ".jsx"]
+  },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader"
-        }
+        test: /\.tsx?$/,
+        use: "babel-loader",
+        exclude: /node_modules/
       }
     ]
   }

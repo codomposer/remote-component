@@ -1,14 +1,8 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "entry",
-        "corejs": 3,
-        "debug": false
-      }
-    ],
-    "@babel/preset-react"
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
   ],
   "plugins": [
     [

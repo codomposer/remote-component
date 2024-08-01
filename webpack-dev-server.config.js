@@ -4,11 +4,11 @@ const webpack = require("webpack");
 const config = require("./webpack.config");
 
 module.exports = {
-  mode: 'development', // Add mode
-  entry: "./src/webpack-dev-server.js",
+  mode: "development", // Add mode
+  entry: "./src/webpack-dev-server.tsx",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js"
   },
   plugins: [
     ...config[0].plugins,
@@ -23,24 +23,29 @@ module.exports = {
   ],
   module: config[0].module,
   optimization: {
-    moduleIds: 'named'
+    moduleIds: "named"
   },
   devServer: {
     hot: true,
     static: {
-      directory: path.resolve(__dirname, 'dist'), // Update for Webpack 5
+      directory: path.resolve(__dirname, "dist") // Update for Webpack 5
     },
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization"
     },
     port: 9090, // Specify port
     open: true // Open browser automatically
   },
   resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
     alias: {
-      "remote-component.config.js": path.resolve(__dirname, "remote-component.config.js")
+      "remote-component.config.js": path.resolve(
+        __dirname,
+        "remote-component.config.js"
+      )
     }
   }
 };

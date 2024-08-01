@@ -18,12 +18,11 @@ export default [
   ...compat.extends("eslint:recommended", "plugin:react/recommended"),
   {
     rules: {
-      "no-console": "warn",
-      "react/prop-types": "off"
+      "no-console": "warn"
     }
   },
   {
-    files: ["**/*.js", "**/*.mjs"],
+    files: ["**/*.js", "**/*.mjs", "**/*.ts", "**/*.tsx"],
     languageOptions: {
       globals: {
         require: "readonly",
