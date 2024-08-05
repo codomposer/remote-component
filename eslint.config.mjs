@@ -13,12 +13,13 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ["**/coverage/", "**/dist/"]
+    ignores: ["**/coverage/", "**/dist/", "**/bundle/"]
   },
   ...compat.extends("eslint:recommended", "plugin:react/recommended"),
   {
     rules: {
-      "no-console": "warn"
+      "no-console": "warn",
+      "react/prop-types": "off"
     }
   },
   {
