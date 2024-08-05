@@ -8,7 +8,7 @@ const Hello = ({ data }) => {
         color: "#ffffff",
         padding: "10px 20px",
         border: "none",
-        borderRadius: "4px",
+        borderRadius: "2px",
         fontSize: "16px",
         cursor: "pointer",
         transition: "background-color 0.3s ease"
