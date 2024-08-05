@@ -1,8 +1,8 @@
 import React from "react";
-import Title from "./components/Title";
+import Hello from "./components/Hello";
 
 const App = ({ name = "World" }) => {
-  return <Title>Hello {name}!</Title>;
+  return <Hello title={name} />;
 };
 
 export default App;
