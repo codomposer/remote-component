@@ -1,1 +1,2 @@
-commitlint -E HUSKY_GIT_PARAMS
+# Your pre-commit script here
+npx --no-install commitlint --edit "$1"
