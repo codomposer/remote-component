@@ -1,0 +1,2 @@
+# Your pre-commit script here
+npm run test:coverage

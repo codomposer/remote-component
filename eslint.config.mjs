@@ -2,6 +2,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import tsParser from "@typescript-eslint/parser";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,17 +15,17 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ["**/coverage/", "**/dist/"]
+    ignores: ["**/coverage/", "**/dist/", "**/bundle/", "**/*.js"]
   },
-  ...compat.extends("eslint:recommended", "plugin:react/recommended"),
+  ...compat.extends(
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ),
   {
-    rules: {
-      "no-console": "warn"
-    }
-  },
-  {
-    files: ["**/*.js", "**/*.mjs", "**/*.ts", "**/*.tsx"],
+    files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
+      parser: tsParser,
       globals: {
         require: "readonly",
         module: "readonly",
@@ -35,6 +37,11 @@ export default [
         __dirname: "readonly",
         console: "readonly"
       }
+    },
+    rules: {
+      "no-console": "warn",
+      "@typescript-eslint/no-require-imports": "off",
+      ...tsPlugin.configs.recommended.rules
     }
   }
 ];

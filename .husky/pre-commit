@@ -1,0 +1,2 @@
+# Your pre-commit script here
+npm run lint && npm run build && npm run test:changed

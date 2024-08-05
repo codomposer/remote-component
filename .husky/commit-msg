@@ -1,0 +1,2 @@
+# Your pre-commit script here
+npx --no-install commitlint --edit "$1"
