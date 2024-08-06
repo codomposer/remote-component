@@ -111,6 +111,16 @@ Please create the remote component in the `./src/components` directoty that you 
 
 The component is normal functional react component.
 
+The props should be data object that involves sub props like below.
+
+```jsx
+interface Props {
+  data: {
+    title: string;
+  };
+}
+```
+
 ### Component Styling
 
 `Note:` Don't use external css files `(e.g., styles.css)`

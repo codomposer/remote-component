@@ -1,12 +1,17 @@
 import React from "react";
-import Hello from "./components/Hello";
+import CoinPriceCard from "./components/CoinPriceCard";
 
-const App = ({ name = "World" }) => {
+const App = () => {
   const data = {
-    title: name
+    coinName: "Bitcoin",
+    coinSymbol: "BTC",
+    price: 29384.52,
+    tvl: 584729103,
+    priceDelta24h: 2.5,
+    volume24h: 28947362891
   };
 
-  return <Hello data={data} />;
+  return <CoinPriceCard data={data} />;
 };
 
 export default App;
