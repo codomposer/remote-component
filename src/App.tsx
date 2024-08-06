@@ -1,12 +1,17 @@
 import React from "react";
-import Title from "./components/Title";
+import CoinPriceCard from "./components/CoinPriceCard";
 
-interface Props {
-  name?: string;
-}
+const App: React.FC = () => {
+  const data = {
+    coinName: "Bitcoin",
+    coinSymbol: "BTC",
+    price: 59384.52,
+    tvl: 584729103,
+    priceDelta24h: 2.5,
+    volume24h: 28947362891
+  };
 
-const App: React.FC<Props> = ({ name = "World" }) => {
-  return <Title>Hello {name}!</Title>;
+  return <CoinPriceCard data={data} />;
 };
 
 export { App };

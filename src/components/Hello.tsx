@@ -1,11 +1,13 @@
 import React from "react";
 
 interface Props {
-  title: string;
+  data: {
+    title: string;
+  };
 }
 
-const Hello: React.FC<Props> = ({ title }) => {
-  return <div>Hello {title}</div>;
+const Hello: React.FC<Props> = ({ data }) => {
+  return <div>Hello {data.title}</div>;
 };
 
 export default Hello;

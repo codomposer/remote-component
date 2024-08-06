@@ -103,6 +103,94 @@ module.exports = {
 };
 ```
 
+## Making remote components
+
+Please create the remote component in the `./src/components` directoty that you are going to create.
+
+The component is normal functional react component.
+
+The props should be data object that involves sub props like below.
+
+```tsx
+interface Props {
+  data: {
+    title: string;
+  };
+}
+
+const Hello: React.FC<Props> = ({ data }) => {
+  return <div>Hello {data.title}</div>;
+};
+
+export default Hello;
+```
+
+### Component Styling
+
+`Note:` Don't use external css files `(e.g., styles.css)`
+
+1. Using CSS-in-JS Libraries (e.g., `styled-components`)
+
+   - Install style-components
+     ```bash
+     npm install styled-components
+     ```
+   - Define styles using styled-components:
+
+     ```tsx
+     import React from "react";
+     import styled from "styled-components";
+
+     const Container = styled.div`
+       background-color: #f0f0f0;
+       padding: 20px;
+     `;
+
+     const Title = styled.h1`
+       font-size: 24px;
+       color: #333;
+     `;
+
+     const MyComponent = () => {
+       return (
+         <Container>
+           <Title>Hello, World!</Title>
+         </Container>
+       );
+     };
+
+     export default MyComponent;
+     ```
+
+2. Using Inline Styles
+
+   - Define styles as an object and use them in JSX:
+
+     ```tsx
+     import React from "react";
+
+     const styles = {
+       container: {
+         backgroundColor: "#f0f0f0",
+         padding: "20px"
+       },
+       title: {
+         fontSize: "24px",
+         color: "#333"
+       }
+     };
+
+     const MyComponent = () => {
+       return (
+         <div style={styles.container}>
+           <h1 style={styles.title}>Hello, World!</h1>
+         </div>
+       );
+     };
+
+     export default MyComponent;
+     ```
+
 ## Commiting
 
 Commits are added to the repository with commitizen compatible `git-cz`.
