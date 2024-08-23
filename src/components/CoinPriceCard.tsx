@@ -11,6 +11,16 @@ interface Props {
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const mockData = {
+  coinName: "Bitcoin",
+  coinSymbol: "BTC",
+  price: 59384.52,
+  tvl: 584729103,
+  priceDelta24h: 2.5,
+  volume24h: 28947362891
+};
+
 const CoinPriceCard: React.FC<Props> = ({ data }) => {
   const { coinName, coinSymbol, price, tvl, priceDelta24h, volume24h } = data;
 

@@ -1,17 +1,38 @@
 import React from "react";
-import CoinPriceCard from "./components/CoinPriceCard";
+import AaveWidget from "./components/AaveWidget";
 
 const App: React.FC = () => {
-  const data = {
-    coinName: "Bitcoin",
-    coinSymbol: "BTC",
-    price: 59384.52,
-    tvl: 584729103,
-    priceDelta24h: 2.5,
-    volume24h: 28947362891
+  const mockData = {
+    assets: [
+      {
+        name: "DAI",
+        apy: "2.5%",
+        tvl: "$100M"
+      },
+      {
+        name: "USDC",
+        apy: "2.5%",
+        tvl: "$100M"
+      },
+      {
+        name: "ETH",
+        apy: "2.5%",
+        tvl: "$100M"
+      },
+      {
+        name: "WBTC",
+        apy: "2.5%",
+        tvl: "$100M"
+      },
+      {
+        name: "AAVE",
+        apy: "2.5%",
+        tvl: "$100M"
+      }
+    ]
   };
 
-  return <CoinPriceCard data={data} />;
+  return <AaveWidget data={mockData} />;
 };
 
 export { App };
