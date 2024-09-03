@@ -13,18 +13,14 @@ const url =
 
 const node = document.getElementById("app") as HTMLElement;
 
-const Component: React.FC<{ name: string }> = props =>
+const Component: React.FC = props =>
   process.env.NODE_ENV === "development" ? (
-    <LocalComponent {...props} />
+    <LocalComponent />
   ) : (
     <RemoteComponent url={url} {...props} />
   );
 
-const App: React.FC = () => (
-  <>
-    <Component name="Webpack" />
-  </>
-);
+const App: React.FC = () => <Component />;
 
 // Use createRoot instead of ReactDOM.render
 const root = createRoot(node);

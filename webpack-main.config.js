@@ -43,14 +43,21 @@ fs.readdir(directory, (err, files) => {
 
 let entries = {};
 
+const dir = "./src/components";
 // Generate entry list according to the component
 if (!componentName) {
-  const dir = "./src/components";
+  fs.readdirSync(dir).forEach(subdir => {
+    const subdirPath = path.join(dir, subdir);
 
-  fs.readdirSync(dir).forEach(file => {
-    if (path.extname(file) === ".tsx") {
-      const name = path.basename(file, ".tsx");
-      entries[name] = `./${path.join(dir, file).replace(/\\/g, "/")}`;
+    if (fs.statSync(subdirPath).isDirectory()) {
+      const files = fs.readdirSync(subdirPath);
+      files.forEach(file => {
+        if (path.extname(file) === ".tsx") {
+          const name = path.basename(file, ".tsx");
+          entries[name] =
+            `./${path.join(subdirPath, file).replace(/\\/g, "/")}`;
+        }
+      });
     }
   });
 } else {
@@ -73,8 +80,8 @@ module.exports = {
     new WebpackShellPluginNext({
       onBuildEnd: {
         scripts: ["cp ./dist/*.bundle.js ./bundle/"],
-        blocking: false,
-        parallel: true
+        blocking: true,
+        parallel: false
       }
     })
   ],
@@ -98,8 +105,22 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "babel-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        loader: "ts-loader"
+      },
+      {
+        test: /\.?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"]
+          }
+        }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   }

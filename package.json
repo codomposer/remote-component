@@ -10,7 +10,7 @@
     "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
     "build:one": "npm run clean && node setComponentName.js",
     "build:dev": "npm run clean && cross-env NODE_ENV=development webpack --mode development",
-    "webpack-dev-server": "cross-env NODE_ENV=development webpack serve --config webpack.dev.config.js --port 9090 --open",
+    "webpack-dev-server": "cross-env NODE_ENV=development webpack serve --config webpack.dev.config.js --port 9000 --open",
     "start": "concurrently -n webpack,webpack-dev-server -c green,cyan \"npm run build:dev -- --watch\" \"npm run webpack-dev-server\"",
     "clean": "rimraf dist",
     "cz": "git-cz",
@@ -21,11 +21,15 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@types/highcharts": "^7.0.0",
     "buffer": "^6.0.3",
+    "highcharts": "^11.4.8",
+    "highcharts-react-official": "^3.2.1",
     "https-browserify": "^1.0.0",
     "react": "^18.3.1",
     "stream-http": "^3.2.0",
-    "url": "^0.11.4"
+    "url": "^0.11.4",
+    "webpack-shell-plugin-next": "^2.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.8",
@@ -53,6 +57,7 @@
     "concurrently": "^8.2.2",
     "core-js": "^3.37.1",
     "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-react": "^1.1.7",
@@ -67,14 +72,14 @@
     "regenerator-runtime": "^0.14.1",
     "rimraf": "^6.0.1",
     "source-map-loader": "^5.0.0",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.4",
     "webpack": "^5.93.0",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4",
-    "webpack-shell-plugin-next": "^2.3.1"
+    "webpack-dev-server": "^5.0.4"
   },
   "husky": {
     "hooks": {

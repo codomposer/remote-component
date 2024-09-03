@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Hello: React.FC<Props> = ({ data }) => {
-  return <div>Hello {data.title}</div>;
+  return <div className="hello">Hello {data.title}</div>;
 };
 
 export default Hello;

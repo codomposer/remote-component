@@ -36,7 +36,7 @@ module.exports = {
       "Access-Control-Allow-Headers":
         "X-Requested-With, content-type, Authorization"
     },
-    port: 9090, // Specify port
+    port: 9000, // Specify port
     open: true // Open browser automatically
   },
   resolve: {
