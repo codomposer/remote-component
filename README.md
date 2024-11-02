@@ -207,6 +207,6 @@ npm run cz
 
 (Initialized) Joel Thoms (https://github.com/joelnet)
 
-(Updated for current version) Icetrust (https://github.com/icetrust0212)
+(Updated for current version) Codomposer (https://github.com/codomposer/)
 
 Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](www.flaticon.com)
